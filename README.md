@@ -30,6 +30,6 @@ Una tarea debe estar compuesta por los siguientes datos:
 Nota: Cada usuario al crear su cuenta e iniciar sesión debe poder ver sus tareas y solo sus tareas,
 no las tareas creadas por los otros usuarios.
 
-#casos de prueba extremos
-. El usuario intenta crear un texto con mas de 1000 caracteres
-Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
+# Casos de prueba extremos
+-El usuario intenta crear un texto con mas de 1000 caracteres
+#### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
