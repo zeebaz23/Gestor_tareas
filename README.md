@@ -31,5 +31,5 @@ Nota: Cada usuario al crear su cuenta e iniciar sesión debe poder ver sus tarea
 no las tareas creadas por los otros usuarios.
 
 # Casos de prueba extremos
--El usuario intenta crear un texto con mas de 1000 caracteres
-#### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
+- El usuario intenta crear un texto con mas de 1000 caracteres
+## Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
