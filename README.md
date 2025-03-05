@@ -31,8 +31,16 @@ Nota: Cada usuario al crear su cuenta e iniciar sesión debe poder ver sus tarea
 no las tareas creadas por los otros usuarios.
 
 # Casos de prueba extremos
-- El usuario intenta crear un texto con mas de 1000 caracteres
-  #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
+- Crear una tarea con texto extremadamente largo
+
+  Descripción: El usuario intenta crear una tarea con un texto muy largo (por ejemplo, 1000 caracteres).
+
+  Pasos:
+  Iniciar sesión con un usuario válido.
+  Crear una tarea con un texto de 1000 caracteres, seleccionar una categoría y un estado.
+  Hacer clic en "Guardar".
+
+  #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud.
 - Eliminar una tarea no existente
 
   Descripción: El usuario intenta eliminar una tarea que ya ha sido eliminada o no existe.
