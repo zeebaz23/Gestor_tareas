@@ -32,11 +32,10 @@ no las tareas creadas por los otros usuarios.
 
 # Casos de prueba extremos
 - El usuario intenta crear un texto con mas de 1000 caracteres
-#### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
-Caso de prueba: Eliminar una tarea no existente
-
-Descripción: El usuario intenta eliminar una tarea que ya ha sido eliminada o no existe.
+  #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
+- Eliminar una tarea no existente
+- Descripción: El usuario intenta eliminar una tarea que ya ha sido eliminada o no existe.
 Pasos:
 Iniciar sesión con un usuario válido.
 Intentar eliminar una tarea que no existe o ya ha sido eliminada.
-Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea no se encuentra en la lista.
+- Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea no se encuentra en la lista.
