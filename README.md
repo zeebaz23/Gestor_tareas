@@ -49,3 +49,12 @@ no las tareas creadas por los otros usuarios.
   - Iniciar sesión con un usuario válido.
   - Intentar eliminar una tarea que no existe o ya ha sido eliminada.
   #### Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea no se encuentra en la lista.
+
+- Intentar crear una cuenta con un nombre de usuario ya existente
+
+  Descripción: El usuario intenta crear una cuenta utilizando un nombre de usuario que ya está registrado en el sistema.
+
+  Pasos:
+  - Iniciar sesión con un usuario válido.
+  - Intentar crear una nueva cuenta con el mismo nombre de usuario que otro usuario ya registrado en el sistema.
+  #### Resultado esperado: El sistema debe mostrar un mensaje de error indicando que el nombre de usuario ya está en uso y debe ser único.
