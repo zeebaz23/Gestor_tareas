@@ -32,4 +32,4 @@ no las tareas creadas por los otros usuarios.
 
 # Casos de prueba extremos
 - El usuario intenta crear un texto con mas de 1000 caracteres
-#### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
+### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud. 
