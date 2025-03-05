@@ -36,9 +36,9 @@ no las tareas creadas por los otros usuarios.
   Descripción: El usuario intenta crear una tarea con un texto muy largo (por ejemplo, 1000 caracteres).
 
   Pasos:
-  Iniciar sesión con un usuario válido.
-  Crear una tarea con un texto de 1000 caracteres, seleccionar una categoría y un estado.
-  Hacer clic en "Guardar".
+  - Iniciar sesión con un usuario válido.
+  - Crear una tarea con un texto de 1000 caracteres, seleccionar una categoría y un estado.
+  - Hacer clic en "Guardar".
 
   #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud.
 - Eliminar una tarea no existente
