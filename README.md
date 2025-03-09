@@ -2,7 +2,9 @@
 # Descripción del proyecto
 
 El objetivo de este proyecto es desarrollar una aplicación para la gestión de tareas personales y
-profesionales. Las funcionalidades que la aplicación debe tener son:
+profesionales. 
+
+# Casos de prueba normales
 
 1. Crear una tarea: La aplicación debe permitir a los usuarios crear una tarea en el
 sistema
@@ -40,16 +42,17 @@ no las tareas creadas por los otros usuarios.
   - Crear una tarea con un texto menor de 200 caracteres
   - Hacer clic en "Guardar".
 
-  #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud.
-- Eliminar una tarea 
+- Crear multiples tareas
 
-  Descripción: El usuario intenta eliminar una tarea sin seleccionarla
+  Descripción: El usuario intenta Crear 1000 tareas en un corto periodo
 
   Pasos:
   - Iniciar sesión con un usuario válido.
-  - Intentar eliminar una tarea sin seleccionar
-  #### Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea debe ser seleccionada.
+  - Intenta crear 1000 tareas en un corto tiempo
 
+
+  #### Resultado esperado: Se mantiene la estabilidad del sistema
+  
 - Intentar crear una cuenta con un nombre de usuario ya existente
 
   Descripción: El usuario intenta crear una cuenta utilizando un nombre de usuario que ya está registrado en el sistema.
@@ -58,3 +61,39 @@ no las tareas creadas por los otros usuarios.
   - Iniciar sesión con un usuario válido.
   - Intentar crear una nueva cuenta con el mismo nombre de usuario que otro usuario ya registrado en el sistema.
   #### Resultado esperado: El sistema debe mostrar un mensaje de error indicando que el nombre de usuario ya está en uso y debe ser único.
+
+  # Casos de prueba error
+
+  - iniciar sesion
+
+  Descripción: Inicia sesion con credenciales incorrectas
+
+  Pasos:
+  - Iniciar sesión con un usuario y contraseña
+  - Inicia sesión
+    
+  #### Resultado esperado: Se muestra un mensaje de "Usuario o contraseña incorrectos"
+
+- Eliminar una tarea
+
+  Descripción: El usuario intenta eliminar una tarea sin seleccionarla
+
+  Pasos:
+  - Iniciar sesión con un usuario válido.
+  - Intentar eliminar una tarea sin seleccionar
+  #### Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea debe ser seleccionada.
+
+- Registro duplicado
+
+  Descripción: Crear una cuenta con un nombre de usuario ya registrado
+
+  Pasos:
+  - Ingresar un usuario existente
+  - Crear cuenta
+    
+  #### Resultado esperado: Se muestra un mensaje de "Usuario ya existente"
+  
+
+
+
+
