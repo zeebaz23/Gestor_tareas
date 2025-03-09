@@ -94,7 +94,7 @@ class TaskManager:
         self.load_tasks()
 
     def test_long_task_text(self):
-        self.task_text_entry.insert(0, "A" * 201)  # Insertar un texto de 201 caracteres
+        self.task_text_entry.insert(0, "A" * 201)
         self.create_task()
 
 
