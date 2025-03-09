@@ -33,22 +33,22 @@ no las tareas creadas por los otros usuarios.
 # Casos de prueba extremos
 - Crear una tarea con texto extremadamente largo
 
-  Descripción: El usuario intenta crear una tarea con un texto muy largo (por ejemplo, 1000 caracteres).
+  Descripción: El usuario intenta crear una tarea con un texto muy largo (por ejemplo, 200 caracteres).
 
   Pasos:
   - Iniciar sesión con un usuario válido.
-  - Crear una tarea con un texto menor de 1000 caracteres
+  - Crear una tarea con un texto menor de 200 caracteres
   - Hacer clic en "Guardar".
 
   #### Resultado esperado: La tarea se guarda correctamente si el sistema está preparado para manejar textos largos, o se muestra un mensaje de error si el sistema tiene un límite de longitud.
-- Eliminar una tarea no existente
+- Eliminar una tarea 
 
-  Descripción: El usuario intenta eliminar una tarea que ya ha sido eliminada o no existe.
+  Descripción: El usuario intenta eliminar una tarea sin seleccionarla
 
   Pasos:
   - Iniciar sesión con un usuario válido.
-  - Intentar eliminar una tarea que no existe o ya ha sido eliminada.
-  #### Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea no se encuentra en la lista.
+  - Intentar eliminar una tarea sin seleccionar
+  #### Resultado esperado: El sistema muestra un mensaje de error indicando que la tarea debe ser seleccionada.
 
 - Intentar crear una cuenta con un nombre de usuario ya existente
 
