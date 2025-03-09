@@ -79,13 +79,29 @@ class TaskManager:
         task_text = self.task_text_entry.get()
         category = self.category_entry.get()
         status = self.status_combobox.get()
+
+        if len(task_text) > 200:
+            messagebox.showerror("Error", "El texto de la tarea no puede superar los 200 caracteres.")
+            return
+
         created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO tasks (user_id, text, created_at, category, status) VALUES (?, ?, ?, ?, ?)', (self.user_id, task_text, created_at, category, status))
+        cursor.execute('INSERT INTO tasks (user_id, text, created_at, category, status) VALUES (?, ?, ?, ?, ?)',
+                       (self.user_id, task_text, created_at, category, status))
         conn.commit()
         conn.close()
         self.load_tasks()
+
+    def test_long_task_text(self):
+        self.task_text_entry.insert(0, "A" * 201)  # Insertar un texto de 201 caracteres
+        self.create_task()
+
+
+        if len(self.task_text_entry.get()) > 200:
+            print("Prueba exitosa: Se mostró un mensaje de error por texto demasiado largo.")
+        else:
+            print("Prueba fallida: El sistema permitió un texto demasiado largo.")
 
     def load_tasks(self):
         for item in self.task_tree.get_children():
