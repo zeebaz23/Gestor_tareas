@@ -4,7 +4,6 @@
 El objetivo de este proyecto es desarrollar una aplicación para la gestión de tareas personales y
 profesionales. 
 
-Diagrama sin título.drawio.png
 
 # Casos de prueba normales
 
