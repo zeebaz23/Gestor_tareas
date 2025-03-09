@@ -65,7 +65,7 @@ class TaskManager:
         self.status_combobox.grid(row=2, column=1)
         self.status_combobox.current(0)
         tk.Button(self.root, text="Crear Tarea", command=self.create_task).grid(row=3, column=0, columnspan=2)
-        self.task_tree = ttk.Treeview(self.root, columns=("text", "created_at", "category", "status"), show="headings")
+        self.task_tree = ttk.Treeview(self.root, columns=("id", "text", "created_at", "category", "status"), show="headings")
         self.task_tree.heading("text", text="Texto de la Tarea")
         self.task_tree.heading("created_at", text="Fecha de Creación")
         self.task_tree.heading("category", text="Categoría")
@@ -95,26 +95,29 @@ class TaskManager:
         cursor.execute('SELECT id, text, created_at, category, status FROM tasks WHERE user_id = ?', (self.user_id,))
         tasks = cursor.fetchall()
         for task in tasks:
-            self.task_tree.insert("", "end", values=(task[1], task[2], task[3], task[4]), iid=task[0])
+            self.task_tree.insert("", "end", values=(task[0], task[1], task[2], task[3], task[4]), iid=str(task[0]))
         conn.close()
 
     def delete_task(self):
         selected_item = self.task_tree.selection()
-        if selected_item:
-            task_id = self.task_tree.item(selected_item)["iid"]
+        if not selected_item:
+            messagebox.showerror("Error", "Debes seleccionar una tarea para eliminar.")
+            return
+
+        confirm = messagebox.askyesno("Confirmar eliminación", "¿Estás seguro de que deseas eliminar esta tarea?")
+        if confirm:
+            task_id = selected_item[0]
             conn = create_connection()
             cursor = conn.cursor()
             cursor.execute('DELETE FROM tasks WHERE id = ?', (task_id,))
             conn.commit()
             conn.close()
             self.load_tasks()
-        else:
-            messagebox.showerror("Error", "Por favor, selecciona una tarea para eliminar.")
 
     def edit_task_screen(self):
         selected_item = self.task_tree.selection()
         if selected_item:
-            task_id = self.task_tree.item(selected_item)["iid"]
+            task_id = int(selected_item[0])
             conn = create_connection()
             cursor = conn.cursor()
             cursor.execute('SELECT text, category, status FROM tasks WHERE id = ?', (task_id,))
@@ -125,7 +128,7 @@ class TaskManager:
             self.task_text_entry = tk.Entry(self.root)
             self.task_text_entry.insert(0, task[0])
             self.task_text_entry.grid(row=0, column=1)
-            tk.Label(self.root, text="Categoría").grid(row=1, column=0)
+            tk.Label(self.root, text="Categor\u00eda").grid(row=1, column=0)
             self.category_entry = tk.Entry(self.root)
             self.category_entry.insert(0, task[1])
             self.category_entry.grid(row=1, column=1)
@@ -133,7 +136,8 @@ class TaskManager:
             self.status_combobox = ttk.Combobox(self.root, values=["Por hacer", "En progreso", "Completada"])
             self.status_combobox.set(task[2])
             self.status_combobox.grid(row=2, column=1)
-            tk.Button(self.root, text="Guardar Cambios", command=lambda: self.edit_task(task_id)).grid(row=3, column=0, columnspan=2)
+            tk.Button(self.root, text="Guardar Cambios", command=lambda: self.edit_task(task_id)).grid(row=3, column=0,
+                                                                                                       columnspan=2)
             tk.Button(self.root, text="Volver", command=self.create_task_screen).grid(row=4, column=0, columnspan=2)
 
     def edit_task(self, task_id):
@@ -142,7 +146,8 @@ class TaskManager:
         status = self.status_combobox.get()
         conn = create_connection()
         cursor = conn.cursor()
-        cursor.execute('UPDATE tasks SET text = ?, category = ?, status = ? WHERE id = ?', (task_text, category, status, task_id))
+        cursor.execute('UPDATE tasks SET text = ?, category = ?, status = ? WHERE id = ?',
+                       (task_text, category, status, task_id))
         conn.commit()
         conn.close()
         self.create_task_screen()
@@ -155,3 +160,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = TaskManager(root)
     root.mainloop()
+

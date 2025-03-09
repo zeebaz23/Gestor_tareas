@@ -7,13 +7,12 @@ def create_user(username, password):
     try:
         cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
         conn.commit()
+        return True
     except sqlite3.IntegrityError:
         return False
-    return True
 
 def authenticate_user(username, password):
     conn = create_connection()
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
-    user = cursor.fetchone()
-    return user
+    return cursor.fetchone()
