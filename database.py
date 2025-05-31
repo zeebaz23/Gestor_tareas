@@ -23,4 +23,3 @@ def create_tables():
     conn.close()
 
 create_tables()
-
